@@ -1,8 +1,13 @@
 import { LinkIcon } from "lucide-react";
 
+import { useCurrentUser } from "@/features/auth/hooks/useCurrentUser";
+import { Button } from "@/features/shared/components/ui/Button";
 import Card from "@/features/shared/components/ui/Card";
+import Link from "@/features/shared/components/ui/Link";
+import { router } from "@/router";
 
 import { ExperienceForDetails } from "../types";
+import { ExperienceDeleteDialog } from "./ExperienceDeleteDialog";
 
 type ExperienceDetailsProps = {
   experience: ExperienceForDetails;
@@ -16,6 +21,7 @@ export function ExperienceDetails({ experience }: ExperienceDetailsProps) {
         <ExperienceDetailsHeader experience={experience} />
         <ExperienceDetailsContent experience={experience} />
         <ExperienceDetailsMeta experience={experience} />
+        <ExperienceDetailsActionButtons experience={experience} />
       </div>
     </Card>
   );
@@ -83,6 +89,49 @@ function ExperienceDetailsMeta({ experience }: ExperienceDetailsMetaProps) {
           </a>
         </div>
       )}
+    </div>
+  );
+}
+
+type ExperienceDetailsActionButtonsProps = Pick<
+  ExperienceDetailsProps,
+  "experience"
+>;
+
+function ExperienceDetailsActionButtons({
+  experience,
+}: ExperienceDetailsActionButtonsProps) {
+  const { currentUser } = useCurrentUser();
+
+  const isPostOwner = currentUser?.id === experience.userId;
+
+  if (isPostOwner) {
+    return <ExperienceOwnerButtons experience={experience} />;
+  }
+
+  return null;
+}
+
+type ExperienceOwnerButtonsProps = Pick<ExperienceDetailsProps, "experience">;
+
+function ExperienceOwnerButtons({ experience }: ExperienceOwnerButtonsProps) {
+  return (
+    <div className="flex items-center gap-4">
+      <Button variant="outline" asChild>
+        <Link
+          variant="ghost"
+          to="/experiences/$experienceId/edit"
+          params={{ experienceId: experience.id }}
+        >
+          Edit
+        </Link>
+      </Button>
+      <ExperienceDeleteDialog
+        experience={experience}
+        onSuccess={() => {
+          router.navigate({ to: "/" });
+        }}
+      />
     </div>
   );
 }
