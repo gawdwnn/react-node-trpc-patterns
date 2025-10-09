@@ -16,6 +16,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UsersUserIdRouteImport } from './routes/users/$userId'
 import { Route as ExperiencesExperienceIdIndexRouteImport } from './routes/experiences/$experienceId/index'
+import { Route as ExperiencesExperienceIdEditRouteImport } from './routes/experiences/$experienceId/edit'
 
 const SettingsRoute = SettingsRouteImport.update({
   id: '/settings',
@@ -53,6 +54,12 @@ const ExperiencesExperienceIdIndexRoute =
     path: '/experiences/$experienceId/',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ExperiencesExperienceIdEditRoute =
+  ExperiencesExperienceIdEditRouteImport.update({
+    id: '/experiences/$experienceId/edit',
+    path: '/experiences/$experienceId/edit',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +68,7 @@ export interface FileRoutesByFullPath {
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
   '/users/$userId': typeof UsersUserIdRoute
+  '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
   '/experiences/$experienceId': typeof ExperiencesExperienceIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -70,6 +78,7 @@ export interface FileRoutesByTo {
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
   '/users/$userId': typeof UsersUserIdRoute
+  '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
   '/experiences/$experienceId': typeof ExperiencesExperienceIdIndexRoute
 }
 export interface FileRoutesById {
@@ -80,6 +89,7 @@ export interface FileRoutesById {
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
   '/users/$userId': typeof UsersUserIdRoute
+  '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
   '/experiences/$experienceId/': typeof ExperiencesExperienceIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -91,6 +101,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/settings'
     | '/users/$userId'
+    | '/experiences/$experienceId/edit'
     | '/experiences/$experienceId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -100,6 +111,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/settings'
     | '/users/$userId'
+    | '/experiences/$experienceId/edit'
     | '/experiences/$experienceId'
   id:
     | '__root__'
@@ -109,6 +121,7 @@ export interface FileRouteTypes {
     | '/search'
     | '/settings'
     | '/users/$userId'
+    | '/experiences/$experienceId/edit'
     | '/experiences/$experienceId/'
   fileRoutesById: FileRoutesById
 }
@@ -119,6 +132,7 @@ export interface RootRouteChildren {
   SearchRoute: typeof SearchRoute
   SettingsRoute: typeof SettingsRoute
   UsersUserIdRoute: typeof UsersUserIdRoute
+  ExperiencesExperienceIdEditRoute: typeof ExperiencesExperienceIdEditRoute
   ExperiencesExperienceIdIndexRoute: typeof ExperiencesExperienceIdIndexRoute
 }
 
@@ -173,6 +187,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExperiencesExperienceIdIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experiences/$experienceId/edit': {
+      id: '/experiences/$experienceId/edit'
+      path: '/experiences/$experienceId/edit'
+      fullPath: '/experiences/$experienceId/edit'
+      preLoaderRoute: typeof ExperiencesExperienceIdEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +204,7 @@ const rootRouteChildren: RootRouteChildren = {
   SearchRoute: SearchRoute,
   SettingsRoute: SettingsRoute,
   UsersUserIdRoute: UsersUserIdRoute,
+  ExperiencesExperienceIdEditRoute: ExperiencesExperienceIdEditRoute,
   ExperiencesExperienceIdIndexRoute: ExperiencesExperienceIdIndexRoute,
 }
 export const routeTree = rootRouteImport
