@@ -14,6 +14,7 @@ import { Route as SearchRouteImport } from './routes/search'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NotificationsIndexRouteImport } from './routes/notifications/index'
 import { Route as UsersUserIdIndexRouteImport } from './routes/users/$userId/index'
 import { Route as ExperiencesExperienceIdIndexRouteImport } from './routes/experiences/$experienceId/index'
 import { Route as UsersUserIdFollowingRouteImport } from './routes/users/$userId/following'
@@ -44,6 +45,11 @@ const LoginRoute = LoginRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsIndexRoute = NotificationsIndexRouteImport.update({
+  id: '/notifications/',
+  path: '/notifications/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UsersUserIdIndexRoute = UsersUserIdIndexRouteImport.update({
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
+  '/notifications': typeof NotificationsIndexRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
   '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
   '/users/$userId/followers': typeof UsersUserIdFollowersRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
+  '/notifications': typeof NotificationsIndexRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
   '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
   '/users/$userId/followers': typeof UsersUserIdFollowersRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
+  '/notifications/': typeof NotificationsIndexRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
   '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
   '/users/$userId/followers': typeof UsersUserIdFollowersRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
+    | '/notifications'
     | '/experiences/$experienceId/attendees'
     | '/experiences/$experienceId/edit'
     | '/users/$userId/followers'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
+    | '/notifications'
     | '/experiences/$experienceId/attendees'
     | '/experiences/$experienceId/edit'
     | '/users/$userId/followers'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
+    | '/notifications/'
     | '/experiences/$experienceId/attendees'
     | '/experiences/$experienceId/edit'
     | '/users/$userId/followers'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   SearchRoute: typeof SearchRoute
   SettingsRoute: typeof SettingsRoute
+  NotificationsIndexRoute: typeof NotificationsIndexRoute
   ExperiencesExperienceIdAttendeesRoute: typeof ExperiencesExperienceIdAttendeesRoute
   ExperiencesExperienceIdEditRoute: typeof ExperiencesExperienceIdEditRoute
   UsersUserIdFollowersRoute: typeof UsersUserIdFollowersRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications/': {
+      id: '/notifications/'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/users/$userId/': {
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   SearchRoute: SearchRoute,
   SettingsRoute: SettingsRoute,
+  NotificationsIndexRoute: NotificationsIndexRoute,
   ExperiencesExperienceIdAttendeesRoute: ExperiencesExperienceIdAttendeesRoute,
   ExperiencesExperienceIdEditRoute: ExperiencesExperienceIdEditRoute,
   UsersUserIdFollowersRoute: UsersUserIdFollowersRoute,
