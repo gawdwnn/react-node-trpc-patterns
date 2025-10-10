@@ -14,8 +14,10 @@ import { Route as SearchRouteImport } from './routes/search'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as UsersUserIdRouteImport } from './routes/users/$userId'
+import { Route as UsersUserIdIndexRouteImport } from './routes/users/$userId/index'
 import { Route as ExperiencesExperienceIdIndexRouteImport } from './routes/experiences/$experienceId/index'
+import { Route as UsersUserIdFollowingRouteImport } from './routes/users/$userId/following'
+import { Route as UsersUserIdFollowersRouteImport } from './routes/users/$userId/followers'
 import { Route as ExperiencesExperienceIdEditRouteImport } from './routes/experiences/$experienceId/edit'
 import { Route as ExperiencesExperienceIdAttendeesRouteImport } from './routes/experiences/$experienceId/attendees'
 
@@ -44,9 +46,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UsersUserIdRoute = UsersUserIdRouteImport.update({
-  id: '/users/$userId',
-  path: '/users/$userId',
+const UsersUserIdIndexRoute = UsersUserIdIndexRouteImport.update({
+  id: '/users/$userId/',
+  path: '/users/$userId/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperiencesExperienceIdIndexRoute =
@@ -55,6 +57,16 @@ const ExperiencesExperienceIdIndexRoute =
     path: '/experiences/$experienceId/',
     getParentRoute: () => rootRouteImport,
   } as any)
+const UsersUserIdFollowingRoute = UsersUserIdFollowingRouteImport.update({
+  id: '/users/$userId/following',
+  path: '/users/$userId/following',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsersUserIdFollowersRoute = UsersUserIdFollowersRouteImport.update({
+  id: '/users/$userId/followers',
+  path: '/users/$userId/followers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExperiencesExperienceIdEditRoute =
   ExperiencesExperienceIdEditRouteImport.update({
     id: '/experiences/$experienceId/edit',
@@ -74,10 +86,12 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
-  '/users/$userId': typeof UsersUserIdRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
   '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
+  '/users/$userId/followers': typeof UsersUserIdFollowersRoute
+  '/users/$userId/following': typeof UsersUserIdFollowingRoute
   '/experiences/$experienceId': typeof ExperiencesExperienceIdIndexRoute
+  '/users/$userId': typeof UsersUserIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -85,10 +99,12 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
-  '/users/$userId': typeof UsersUserIdRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
   '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
+  '/users/$userId/followers': typeof UsersUserIdFollowersRoute
+  '/users/$userId/following': typeof UsersUserIdFollowingRoute
   '/experiences/$experienceId': typeof ExperiencesExperienceIdIndexRoute
+  '/users/$userId': typeof UsersUserIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -97,10 +113,12 @@ export interface FileRoutesById {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
-  '/users/$userId': typeof UsersUserIdRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
   '/experiences/$experienceId/edit': typeof ExperiencesExperienceIdEditRoute
+  '/users/$userId/followers': typeof UsersUserIdFollowersRoute
+  '/users/$userId/following': typeof UsersUserIdFollowingRoute
   '/experiences/$experienceId/': typeof ExperiencesExperienceIdIndexRoute
+  '/users/$userId/': typeof UsersUserIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -110,10 +128,12 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
-    | '/users/$userId'
     | '/experiences/$experienceId/attendees'
     | '/experiences/$experienceId/edit'
+    | '/users/$userId/followers'
+    | '/users/$userId/following'
     | '/experiences/$experienceId'
+    | '/users/$userId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -121,10 +141,12 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
-    | '/users/$userId'
     | '/experiences/$experienceId/attendees'
     | '/experiences/$experienceId/edit'
+    | '/users/$userId/followers'
+    | '/users/$userId/following'
     | '/experiences/$experienceId'
+    | '/users/$userId'
   id:
     | '__root__'
     | '/'
@@ -132,10 +154,12 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
-    | '/users/$userId'
     | '/experiences/$experienceId/attendees'
     | '/experiences/$experienceId/edit'
+    | '/users/$userId/followers'
+    | '/users/$userId/following'
     | '/experiences/$experienceId/'
+    | '/users/$userId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -144,10 +168,12 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   SearchRoute: typeof SearchRoute
   SettingsRoute: typeof SettingsRoute
-  UsersUserIdRoute: typeof UsersUserIdRoute
   ExperiencesExperienceIdAttendeesRoute: typeof ExperiencesExperienceIdAttendeesRoute
   ExperiencesExperienceIdEditRoute: typeof ExperiencesExperienceIdEditRoute
+  UsersUserIdFollowersRoute: typeof UsersUserIdFollowersRoute
+  UsersUserIdFollowingRoute: typeof UsersUserIdFollowingRoute
   ExperiencesExperienceIdIndexRoute: typeof ExperiencesExperienceIdIndexRoute
+  UsersUserIdIndexRoute: typeof UsersUserIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -187,11 +213,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/users/$userId': {
-      id: '/users/$userId'
+    '/users/$userId/': {
+      id: '/users/$userId/'
       path: '/users/$userId'
       fullPath: '/users/$userId'
-      preLoaderRoute: typeof UsersUserIdRouteImport
+      preLoaderRoute: typeof UsersUserIdIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experiences/$experienceId/': {
@@ -199,6 +225,20 @@ declare module '@tanstack/react-router' {
       path: '/experiences/$experienceId'
       fullPath: '/experiences/$experienceId'
       preLoaderRoute: typeof ExperiencesExperienceIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/users/$userId/following': {
+      id: '/users/$userId/following'
+      path: '/users/$userId/following'
+      fullPath: '/users/$userId/following'
+      preLoaderRoute: typeof UsersUserIdFollowingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/users/$userId/followers': {
+      id: '/users/$userId/followers'
+      path: '/users/$userId/followers'
+      fullPath: '/users/$userId/followers'
+      preLoaderRoute: typeof UsersUserIdFollowersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experiences/$experienceId/edit': {
@@ -224,10 +264,12 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   SearchRoute: SearchRoute,
   SettingsRoute: SettingsRoute,
-  UsersUserIdRoute: UsersUserIdRoute,
   ExperiencesExperienceIdAttendeesRoute: ExperiencesExperienceIdAttendeesRoute,
   ExperiencesExperienceIdEditRoute: ExperiencesExperienceIdEditRoute,
+  UsersUserIdFollowersRoute: UsersUserIdFollowersRoute,
+  UsersUserIdFollowingRoute: UsersUserIdFollowingRoute,
   ExperiencesExperienceIdIndexRoute: ExperiencesExperienceIdIndexRoute,
+  UsersUserIdIndexRoute: UsersUserIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
