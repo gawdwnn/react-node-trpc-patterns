@@ -1,4 +1,4 @@
-import { experienceFiltersSchema } from "@advanced-react/shared/schema/experience";
+import { experienceFiltersSchema } from "@react-node-trpc-patterns/shared/schema/experience";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 
 import { ExperienceFilters } from "@/features/experiences/components/ExperienceFilters";

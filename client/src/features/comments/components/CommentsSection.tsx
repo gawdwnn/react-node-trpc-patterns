@@ -1,4 +1,4 @@
-import { Experience } from "@advanced-react/server/features/experience/models";
+import { Experience } from "@react-node-trpc-patterns/server/features/experience/models";
 
 import { ErrorComponent } from "@/features/shared/components/ErrorComponent";
 import Card from "@/features/shared/components/ui/Card";

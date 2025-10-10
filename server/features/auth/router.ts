@@ -2,7 +2,7 @@ import {
   changeEmailSchema,
   changePasswordSchema,
   userCredentialsSchema,
-} from "@advanced-react/shared/schema/auth";
+} from "@react-node-trpc-patterns/shared/schema/auth";
 import { TRPCError } from "@trpc/server";
 import { eq } from "drizzle-orm";
 import { z } from "zod";

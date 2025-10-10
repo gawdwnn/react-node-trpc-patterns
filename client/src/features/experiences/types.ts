@@ -1,4 +1,8 @@
-import { Experience, Tag, User } from "@advanced-react/server/database/schema";
+import {
+  Experience,
+  Tag,
+  User,
+} from "@react-node-trpc-patterns/server/database/schema";
 
 type ExperienceWithUser = Experience & {
   user: User;

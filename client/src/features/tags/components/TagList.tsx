@@ -1,4 +1,4 @@
-import { Tag } from "@advanced-react/server/database/schema";
+import { Tag } from "@react-node-trpc-patterns/server/database/schema";
 
 import { TagCard } from "./TagCard";
 

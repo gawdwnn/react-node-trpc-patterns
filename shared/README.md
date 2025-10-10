@@ -12,12 +12,12 @@ End-to-end type safety through shared validation.
 
 ```ts
 // shared/schema/experience/index.ts
-import { z } from 'zod';
+import { z } from "zod";
 
 export const experienceValidationSchema = z.object({
-  title: z.string().min(1, 'Title is required'),
-  content: z.string().min(1, 'Content is required'),
-  scheduledAt: z.string().datetime('Invalid date'),
+  title: z.string().min(1, "Title is required"),
+  content: z.string().min(1, "Content is required"),
+  scheduledAt: z.string().datetime("Invalid date"),
 });
 
 export type ExperienceData = z.infer<typeof experienceValidationSchema>;
@@ -38,10 +38,10 @@ export const experienceRouter = router({
 **Client usage:**
 
 ```ts
-import { experienceValidationSchema } from '@react-node-trpc-patterns/shared';
+import { experienceValidationSchema } from "@react-node-trpc-patterns/shared";
 
 const form = useForm({
-  resolver: zodResolver(experienceValidationSchema),  // Form validation
+  resolver: zodResolver(experienceValidationSchema), // Form validation
 });
 ```
 

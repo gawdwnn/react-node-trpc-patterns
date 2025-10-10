@@ -1,4 +1,4 @@
-import { User } from "@advanced-react/server/database/schema";
+import { User } from "@react-node-trpc-patterns/server/database/schema";
 
 type UserWithFollowCounts = User & {
   followersCount: number;

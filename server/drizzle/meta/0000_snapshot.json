@@ -35,12 +35,8 @@
           "name": "user_follows_follower_id_users_id_fk",
           "tableFrom": "user_follows",
           "tableTo": "users",
-          "columnsFrom": [
-            "follower_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["follower_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -48,22 +44,15 @@
           "name": "user_follows_following_id_users_id_fk",
           "tableFrom": "user_follows",
           "tableTo": "users",
-          "columnsFrom": [
-            "following_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["following_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
         "user_follows_follower_id_following_id_pk": {
-          "columns": [
-            "follower_id",
-            "following_id"
-          ],
+          "columns": ["follower_id", "following_id"],
           "name": "user_follows_follower_id_following_id_pk"
         }
       },
@@ -133,9 +122,7 @@
       "indexes": {
         "users_email_unique": {
           "name": "users_email_unique",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": true
         }
       },
@@ -172,16 +159,12 @@
       "indexes": {
         "comment_likes_comment_id_idx": {
           "name": "comment_likes_comment_id_idx",
-          "columns": [
-            "comment_id"
-          ],
+          "columns": ["comment_id"],
           "isUnique": false
         },
         "comment_likes_user_id_idx": {
           "name": "comment_likes_user_id_idx",
-          "columns": [
-            "user_id"
-          ],
+          "columns": ["user_id"],
           "isUnique": false
         }
       },
@@ -190,12 +173,8 @@
           "name": "comment_likes_comment_id_comments_id_fk",
           "tableFrom": "comment_likes",
           "tableTo": "comments",
-          "columnsFrom": [
-            "comment_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["comment_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -203,22 +182,15 @@
           "name": "comment_likes_user_id_users_id_fk",
           "tableFrom": "comment_likes",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
         "comment_likes_comment_id_user_id_pk": {
-          "columns": [
-            "comment_id",
-            "user_id"
-          ],
+          "columns": ["comment_id", "user_id"],
           "name": "comment_likes_comment_id_user_id_pk"
         }
       },
@@ -274,9 +246,7 @@
       "indexes": {
         "comments_experience_id_idx": {
           "name": "comments_experience_id_idx",
-          "columns": [
-            "experience_id"
-          ],
+          "columns": ["experience_id"],
           "isUnique": false
         }
       },
@@ -285,12 +255,8 @@
           "name": "comments_experience_id_experiences_id_fk",
           "tableFrom": "comments",
           "tableTo": "experiences",
-          "columnsFrom": [
-            "experience_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["experience_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -298,12 +264,8 @@
           "name": "comments_user_id_users_id_fk",
           "tableFrom": "comments",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -340,16 +302,12 @@
       "indexes": {
         "experience_attendees_experience_id_idx": {
           "name": "experience_attendees_experience_id_idx",
-          "columns": [
-            "experience_id"
-          ],
+          "columns": ["experience_id"],
           "isUnique": false
         },
         "experience_attendees_user_id_idx": {
           "name": "experience_attendees_user_id_idx",
-          "columns": [
-            "user_id"
-          ],
+          "columns": ["user_id"],
           "isUnique": false
         }
       },
@@ -358,12 +316,8 @@
           "name": "experience_attendees_experience_id_experiences_id_fk",
           "tableFrom": "experience_attendees",
           "tableTo": "experiences",
-          "columnsFrom": [
-            "experience_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["experience_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -371,22 +325,15 @@
           "name": "experience_attendees_user_id_users_id_fk",
           "tableFrom": "experience_attendees",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
         "experience_attendees_experience_id_user_id_pk": {
-          "columns": [
-            "experience_id",
-            "user_id"
-          ],
+          "columns": ["experience_id", "user_id"],
           "name": "experience_attendees_experience_id_user_id_pk"
         }
       },
@@ -421,16 +368,12 @@
       "indexes": {
         "experience_favorites_experience_id_idx": {
           "name": "experience_favorites_experience_id_idx",
-          "columns": [
-            "experience_id"
-          ],
+          "columns": ["experience_id"],
           "isUnique": false
         },
         "experience_favorites_user_id_idx": {
           "name": "experience_favorites_user_id_idx",
-          "columns": [
-            "user_id"
-          ],
+          "columns": ["user_id"],
           "isUnique": false
         }
       },
@@ -439,12 +382,8 @@
           "name": "experience_favorites_experience_id_experiences_id_fk",
           "tableFrom": "experience_favorites",
           "tableTo": "experiences",
-          "columnsFrom": [
-            "experience_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["experience_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -452,22 +391,15 @@
           "name": "experience_favorites_user_id_users_id_fk",
           "tableFrom": "experience_favorites",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
         "experience_favorites_experience_id_user_id_pk": {
-          "columns": [
-            "experience_id",
-            "user_id"
-          ],
+          "columns": ["experience_id", "user_id"],
           "name": "experience_favorites_experience_id_user_id_pk"
         }
       },
@@ -502,16 +434,12 @@
       "indexes": {
         "experience_tags_experience_id_idx": {
           "name": "experience_tags_experience_id_idx",
-          "columns": [
-            "experience_id"
-          ],
+          "columns": ["experience_id"],
           "isUnique": false
         },
         "experience_tags_tag_id_idx": {
           "name": "experience_tags_tag_id_idx",
-          "columns": [
-            "tag_id"
-          ],
+          "columns": ["tag_id"],
           "isUnique": false
         }
       },
@@ -520,12 +448,8 @@
           "name": "experience_tags_experience_id_experiences_id_fk",
           "tableFrom": "experience_tags",
           "tableTo": "experiences",
-          "columnsFrom": [
-            "experience_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["experience_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -533,22 +457,15 @@
           "name": "experience_tags_tag_id_tags_id_fk",
           "tableFrom": "experience_tags",
           "tableTo": "tags",
-          "columnsFrom": [
-            "tag_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["tag_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
         "experience_tags_experience_id_tag_id_pk": {
-          "columns": [
-            "experience_id",
-            "tag_id"
-          ],
+          "columns": ["experience_id", "tag_id"],
           "name": "experience_tags_experience_id_tag_id_pk"
         }
       },
@@ -632,9 +549,7 @@
       "indexes": {
         "experiences_user_id_idx": {
           "name": "experiences_user_id_idx",
-          "columns": [
-            "user_id"
-          ],
+          "columns": ["user_id"],
           "isUnique": false
         }
       },
@@ -643,12 +558,8 @@
           "name": "experiences_user_id_users_id_fk",
           "tableFrom": "experiences",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -721,30 +632,22 @@
       "indexes": {
         "notifications_experience_id_idx": {
           "name": "notifications_experience_id_idx",
-          "columns": [
-            "experience_id"
-          ],
+          "columns": ["experience_id"],
           "isUnique": false
         },
         "notifications_comment_id_idx": {
           "name": "notifications_comment_id_idx",
-          "columns": [
-            "comment_id"
-          ],
+          "columns": ["comment_id"],
           "isUnique": false
         },
         "notifications_from_user_id_idx": {
           "name": "notifications_from_user_id_idx",
-          "columns": [
-            "from_user_id"
-          ],
+          "columns": ["from_user_id"],
           "isUnique": false
         },
         "notifications_user_id_idx": {
           "name": "notifications_user_id_idx",
-          "columns": [
-            "user_id"
-          ],
+          "columns": ["user_id"],
           "isUnique": false
         }
       },
@@ -753,12 +656,8 @@
           "name": "notifications_comment_id_comments_id_fk",
           "tableFrom": "notifications",
           "tableTo": "comments",
-          "columnsFrom": [
-            "comment_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["comment_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -766,12 +665,8 @@
           "name": "notifications_experience_id_experiences_id_fk",
           "tableFrom": "notifications",
           "tableTo": "experiences",
-          "columnsFrom": [
-            "experience_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["experience_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -779,12 +674,8 @@
           "name": "notifications_from_user_id_users_id_fk",
           "tableFrom": "notifications",
           "tableTo": "users",
-          "columnsFrom": [
-            "from_user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["from_user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -792,12 +683,8 @@
           "name": "notifications_user_id_users_id_fk",
           "tableFrom": "notifications",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -841,16 +728,12 @@
       "indexes": {
         "tags_name_unique": {
           "name": "tags_name_unique",
-          "columns": [
-            "name"
-          ],
+          "columns": ["name"],
           "isUnique": true
         },
         "tags_name_idx": {
           "name": "tags_name_idx",
-          "columns": [
-            "name"
-          ],
+          "columns": ["name"],
           "isUnique": false
         }
       },

@@ -13,15 +13,15 @@ pnpm dev  # Hot reload at http://localhost:3000
 ### Router Definition
 
 ```ts
-import { protectedProcedure, router } from '../../trpc';
+import { protectedProcedure, router } from "../../trpc";
 
 export const experienceRouter = router({
-  list: publicProcedure.input(listSchema).query(({ input }) =>
-    getExperiences(input)
-  ),
+  list: publicProcedure
+    .input(listSchema)
+    .query(({ input }) => getExperiences(input)),
 
-  create: protectedProcedure.input(createSchema).mutation(({ ctx, input }) =>
-    createExperience(ctx.user.id, input)  // ctx.user from JWT
+  create: protectedProcedure.input(createSchema).mutation(
+    ({ ctx, input }) => createExperience(ctx.user.id, input), // ctx.user from JWT
   ),
 });
 ```

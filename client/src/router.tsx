@@ -1,4 +1,4 @@
-import type { AppRouter } from "@advanced-react/server";
+import type { AppRouter } from "@react-node-trpc-patterns/server";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter as createTanStackRouter } from "@tanstack/react-router";
 import {

@@ -1,5 +1,5 @@
-import { userCredentialsSchema } from "@advanced-react/shared/schema/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { userCredentialsSchema } from "@react-node-trpc-patterns/shared/schema/auth";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 

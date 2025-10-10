@@ -33,7 +33,7 @@ const mutation = trpc.experience.create.useMutation({
 
 ```tsx
 // routes/experiences/$id.tsx
-export const Route = createFileRoute('/experiences/$id')({
+export const Route = createFileRoute("/experiences/$id")({
   loader: ({ params, context }) =>
     context.trpc.experience.getById.query({ id: params.id }),
 });

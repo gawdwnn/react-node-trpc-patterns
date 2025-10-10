@@ -1,9 +1,9 @@
-import { Tag } from "@advanced-react/server/database/schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Tag } from "@react-node-trpc-patterns/server/database/schema";
 import {
   ExperienceFilterParams,
   experienceFiltersSchema,
-} from "@advanced-react/shared/schema/experience";
-import { zodResolver } from "@hookform/resolvers/zod";
+} from "@react-node-trpc-patterns/shared/schema/experience";
 import { Search } from "lucide-react";
 import { useForm } from "react-hook-form";
 

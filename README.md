@@ -48,7 +48,7 @@ export const experienceRouter = router({
 ```tsx
 const mutation = trpc.experience.create.useMutation();
 // input is fully typed from createExperienceSchema
-mutation.mutate({ title: '...', content: '...' });
+mutation.mutate({ title: "...", content: "..." });
 ```
 
 ## Monorepo Structure

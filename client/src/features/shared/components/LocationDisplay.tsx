@@ -1,4 +1,4 @@
-import { LocationData } from "@advanced-react/shared/schema/experience";
+import { LocationData } from "@react-node-trpc-patterns/shared/schema/experience";
 import Leaflet from "leaflet";
 import { MapPin } from "lucide-react";
 import { useEffect } from "react";

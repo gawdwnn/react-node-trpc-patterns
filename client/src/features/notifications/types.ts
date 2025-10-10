@@ -1,4 +1,4 @@
-import { Notification } from "@advanced-react/server/database/schema";
+import { Notification } from "@react-node-trpc-patterns/server/database/schema";
 
 type NotificationWithContent = Notification & {
   content: string;

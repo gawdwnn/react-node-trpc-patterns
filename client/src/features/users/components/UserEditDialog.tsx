@@ -1,6 +1,6 @@
-import { User } from "@advanced-react/server/database/schema";
-import { userEditSchema } from "@advanced-react/shared/schema/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { User } from "@react-node-trpc-patterns/server/database/schema";
+import { userEditSchema } from "@react-node-trpc-patterns/shared/schema/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";

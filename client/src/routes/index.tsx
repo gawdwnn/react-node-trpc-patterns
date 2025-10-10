@@ -16,7 +16,8 @@ function Index() {
     trpc.experiences.feed.useSuspenseInfiniteQuery(
       {},
       {
-        getNextPageParam: (lastPage: { nextCursor?: number }) => lastPage.nextCursor,
+        getNextPageParam: (lastPage: { nextCursor?: number }) =>
+          lastPage.nextCursor,
       },
     );
 

@@ -1,6 +1,6 @@
-import { Experience } from "@advanced-react/server/database/schema";
-import { experienceValidationSchema } from "@advanced-react/shared/schema/experience";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Experience } from "@react-node-trpc-patterns/server/database/schema";
+import { experienceValidationSchema } from "@react-node-trpc-patterns/shared/schema/experience";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 

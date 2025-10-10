@@ -1,4 +1,4 @@
-import { User } from "@advanced-react/server/database/schema";
+import { User } from "@react-node-trpc-patterns/server/database/schema";
 
 import Link from "@/features/shared/components/ui/Link";
 

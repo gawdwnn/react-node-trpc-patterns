@@ -1,5 +1,5 @@
-import { changeEmailSchema } from "@advanced-react/shared/schema/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { changeEmailSchema } from "@react-node-trpc-patterns/shared/schema/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { type z } from "zod";

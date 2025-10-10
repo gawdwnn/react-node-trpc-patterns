@@ -1,4 +1,4 @@
-import { commentValidationSchema } from "@advanced-react/shared/schema/comment";
+import { commentValidationSchema } from "@react-node-trpc-patterns/shared/schema/comment";
 import { TRPCError } from "@trpc/server";
 import { and, count, desc, eq } from "drizzle-orm";
 import { z } from "zod";

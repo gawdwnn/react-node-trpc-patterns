@@ -1,7 +1,7 @@
 import {
   experienceFiltersSchema,
   experienceValidationSchema,
-} from "@advanced-react/shared/schema/experience";
+} from "@react-node-trpc-patterns/shared/schema/experience";
 import { TRPCError } from "@trpc/server";
 import { and, desc, eq, gte, inArray, like, or } from "drizzle-orm";
 import { z } from "zod";

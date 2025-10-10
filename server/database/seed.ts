@@ -1,5 +1,5 @@
-import { LocationData } from "@advanced-react/shared/schema/experience";
 import { faker } from "@faker-js/faker";
+import { LocationData } from "@react-node-trpc-patterns/shared/schema/experience";
 
 import { auth } from "../features/auth";
 import { env } from "../utils/env";

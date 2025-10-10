@@ -23,7 +23,7 @@ type ThemeProviderProps = {
 export function ThemeProvider({
   children,
   defaultTheme = "system",
-  storageKey = "advanced-react-theme",
+  storageKey = "react-node-trpc-patterns-theme",
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
     getItem(storageKey) ?? defaultTheme,

@@ -2,7 +2,7 @@ import {
   Comment,
   Experience,
   User,
-} from "@advanced-react/server/database/schema";
+} from "@react-node-trpc-patterns/server/database/schema";
 
 type CommentWithUser = Comment & {
   user: User;

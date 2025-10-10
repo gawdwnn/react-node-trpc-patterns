@@ -41,7 +41,8 @@ function TagPage() {
         id: tagId,
       },
       {
-        getNextPageParam: (lastPage: { nextCursor: string }) => lastPage.nextCursor,
+        getNextPageParam: (lastPage: { nextCursor: string }) =>
+          lastPage.nextCursor,
       },
     );
 

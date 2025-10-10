@@ -1,4 +1,4 @@
-import { Experience } from "@advanced-react/server/database/schema";
+import { Experience } from "@react-node-trpc-patterns/server/database/schema";
 import { useState } from "react";
 
 import { Button } from "@/features/shared/components/ui/Button";

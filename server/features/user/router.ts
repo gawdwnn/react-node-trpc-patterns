@@ -1,4 +1,4 @@
-import { userEditSchema } from "@advanced-react/shared/schema/auth";
+import { userEditSchema } from "@react-node-trpc-patterns/shared/schema/auth";
 import { TRPCError } from "@trpc/server";
 import { and, count, eq } from "drizzle-orm";
 import { z } from "zod";

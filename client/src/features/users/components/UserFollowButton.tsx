@@ -1,4 +1,4 @@
-import { User } from "@advanced-react/server/database/schema";
+import { User } from "@react-node-trpc-patterns/server/database/schema";
 import { useParams } from "@tanstack/react-router";
 
 import { useCurrentUser } from "@/features/auth/hooks/useCurrentUser";
