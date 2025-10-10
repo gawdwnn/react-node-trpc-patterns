@@ -17,6 +17,7 @@ import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NotificationsIndexRouteImport } from './routes/notifications/index'
 import { Route as TagsTagIdRouteImport } from './routes/tags/$tagId'
+import { Route as ExperiencesNewRouteImport } from './routes/experiences/new'
 import { Route as UsersUserIdIndexRouteImport } from './routes/users/$userId/index'
 import { Route as ExperiencesExperienceIdIndexRouteImport } from './routes/experiences/$experienceId/index'
 import { Route as UsersUserIdFollowingRouteImport } from './routes/users/$userId/following'
@@ -64,6 +65,11 @@ const TagsTagIdRoute = TagsTagIdRouteImport.update({
   path: '/tags/$tagId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperiencesNewRoute = ExperiencesNewRouteImport.update({
+  id: '/experiences/new',
+  path: '/experiences/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UsersUserIdIndexRoute = UsersUserIdIndexRouteImport.update({
   id: '/users/$userId/',
   path: '/users/$userId/',
@@ -105,6 +111,7 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
+  '/experiences/new': typeof ExperiencesNewRoute
   '/tags/$tagId': typeof TagsTagIdRoute
   '/notifications': typeof NotificationsIndexRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
@@ -121,6 +128,7 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
+  '/experiences/new': typeof ExperiencesNewRoute
   '/tags/$tagId': typeof TagsTagIdRoute
   '/notifications': typeof NotificationsIndexRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
@@ -138,6 +146,7 @@ export interface FileRoutesById {
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/settings': typeof SettingsRoute
+  '/experiences/new': typeof ExperiencesNewRoute
   '/tags/$tagId': typeof TagsTagIdRoute
   '/notifications/': typeof NotificationsIndexRoute
   '/experiences/$experienceId/attendees': typeof ExperiencesExperienceIdAttendeesRoute
@@ -156,6 +165,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
+    | '/experiences/new'
     | '/tags/$tagId'
     | '/notifications'
     | '/experiences/$experienceId/attendees'
@@ -172,6 +182,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
+    | '/experiences/new'
     | '/tags/$tagId'
     | '/notifications'
     | '/experiences/$experienceId/attendees'
@@ -188,6 +199,7 @@ export interface FileRouteTypes {
     | '/register'
     | '/search'
     | '/settings'
+    | '/experiences/new'
     | '/tags/$tagId'
     | '/notifications/'
     | '/experiences/$experienceId/attendees'
@@ -205,6 +217,7 @@ export interface RootRouteChildren {
   RegisterRoute: typeof RegisterRoute
   SearchRoute: typeof SearchRoute
   SettingsRoute: typeof SettingsRoute
+  ExperiencesNewRoute: typeof ExperiencesNewRoute
   TagsTagIdRoute: typeof TagsTagIdRoute
   NotificationsIndexRoute: typeof NotificationsIndexRoute
   ExperiencesExperienceIdAttendeesRoute: typeof ExperiencesExperienceIdAttendeesRoute
@@ -273,6 +286,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TagsTagIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experiences/new': {
+      id: '/experiences/new'
+      path: '/experiences/new'
+      fullPath: '/experiences/new'
+      preLoaderRoute: typeof ExperiencesNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/users/$userId/': {
       id: '/users/$userId/'
       path: '/users/$userId'
@@ -325,6 +345,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegisterRoute: RegisterRoute,
   SearchRoute: SearchRoute,
   SettingsRoute: SettingsRoute,
+  ExperiencesNewRoute: ExperiencesNewRoute,
   TagsTagIdRoute: TagsTagIdRoute,
   NotificationsIndexRoute: NotificationsIndexRoute,
   ExperiencesExperienceIdAttendeesRoute: ExperiencesExperienceIdAttendeesRoute,
